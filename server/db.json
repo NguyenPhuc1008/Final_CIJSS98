@@ -1,0 +1,100 @@
+{
+  "user": [
+    {
+      "id": "phuc@phuc",
+      "name": "phuc",
+      "pass": "123"
+    },
+    {
+      "id": "phuc@phuc",
+      "name": "phuc",
+      "pass": "1234"
+    },
+    {
+      "id": "hien@occho",
+      "name": "hiendubo",
+      "pass": "123"
+    },
+    {
+      "id": "phuc@p",
+      "name": "phuc",
+      "pass": "123"
+    }
+  ],
+  "category": [
+    {
+      "category_id": 0,
+      "category_name": "All Products",
+      "id": "a49a"
+    },
+    {
+      "category_id": 1,
+      "category_name": "SmartPhone",
+      "id": "1050"
+    },
+    {
+      "category_id": 2,
+      "category_name": "Laptop",
+      "id": "972c"
+    },
+    {
+      "category_id": 3,
+      "category_name": "Table",
+      "id": "7d79"
+    },
+    {
+      "category_id": 4,
+      "category_name": "SmartWatch",
+      "id": "a713"
+    },
+    {
+      "category_id": 5,
+      "category_name": "HeadPhone",
+      "id": "3521"
+    }
+  ],
+  "product": [
+    {
+      "id": "1",
+      "category_id": 1,
+      "quantity": 1,
+      "name": "Iphone 12",
+      "price": "120",
+      "img": [
+        "https://didongmango.com/images/products/2022/11/04/resized/anh-chup-man-hinh-2022-09-08-luc-01-57-13-removebg-preview_1666200054png_1667546697.png",
+        "https://didongmango.com/images/products/2022/11/04/resized/anh-chup-man-hinh-2022-09-08-luc-01-57-13-removebg-preview_1666200054png_1667546697.png",
+        "https://didongmango.com/images/products/2022/11/04/resized/anh-chup-man-hinh-2022-09-08-luc-01-57-13-removebg-preview_1666200054png_1667546697.png",
+        "https://didongmango.com/images/products/2022/11/04/resized/anh-chup-man-hinh-2022-09-08-luc-01-57-13-removebg-preview_1666200054png_1667546697.png"
+      ],
+      "description": "The iPhone 12 is similar to the iPhone 12 Series collection, featuring the A14 Bionic chip, a 6.1-inch Super Retina XDR display, and 5G support. This product is also a focus for Apple as it shares many characteristics with the Pro line but is more affordable, while its size is considered suitable for the majority of users."
+    },
+    {
+      "id": "2",
+      "category_id": 2,
+      "quantity": 1,
+      "name": "Macbookk Ari M2",
+      "price": "220",
+      "img": [
+        "https://shopdunk.com/images/thumbs/0008502_macbook-air-m2-2022-8gb-ram-256gb-ssd.png",
+        "https://shopdunk.com/images/thumbs/0008502_macbook-air-m2-2022-8gb-ram-256gb-ssd.png",
+        "https://shopdunk.com/images/thumbs/0008502_macbook-air-m2-2022-8gb-ram-256gb-ssd.png",
+        "https://shopdunk.com/images/thumbs/0008502_macbook-air-m2-2022-8gb-ram-256gb-ssd.png"
+      ],
+      "description": "The iPhone 12 is similar to the iPhone 12 Series collection, featuring the A14 Bionic chip, a 6.1-inch Super Retina XDR display, and 5G support. This product is also a focus for Apple as it shares many characteristics with the Pro line but is more affordable, while its size is considered suitable for the majority of users."
+    },
+    {
+      "id": "3",
+      "category_id": 2,
+      "quantity": 1,
+      "name": "Macbookk Ari M2",
+      "price": "220",
+      "img": [
+        "https://shopdunk.com/images/thumbs/0008502_macbook-air-m2-2022-8gb-ram-256gb-ssd.png",
+        "https://shopdunk.com/images/thumbs/0008502_macbook-air-m2-2022-8gb-ram-256gb-ssd.png",
+        "https://shopdunk.com/images/thumbs/0008502_macbook-air-m2-2022-8gb-ram-256gb-ssd.png",
+        "https://shopdunk.com/images/thumbs/0008502_macbook-air-m2-2022-8gb-ram-256gb-ssd.png"
+      ],
+      "description": "The iPhone 12 is similar to the iPhone 12 Series collection, featuring the A14 Bionic chip, a 6.1-inch Super Retina XDR display, and 5G support. This product is also a focus for Apple as it shares many characteristics with the Pro line but is more affordable, while its size is considered suitable for the majority of users."
+    }
+  ]
+}

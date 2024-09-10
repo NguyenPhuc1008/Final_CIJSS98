@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "json-server --port 8888 --watch db.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "i": "^0.3.7",
+    "json-server": "^1.0.0-beta.2",
+    "npm": "^10.8.3"
+  }
+}
