@@ -10,6 +10,7 @@ import ShopPage from "./pages/ShopPage";
 import DetailPage from "./pages/DetailPage";
 import CartPage from "./pages/CartPage";
 import PaymentPage from "./pages/PaymentPage";
+import Profile from "./pages/Profile";
 
 
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="/shop/:productId" element={<DetailPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
         <Partners />
         <Footer />

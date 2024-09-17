@@ -1,28 +1,52 @@
 import React, { useEffect, useState } from 'react'
+import { notification } from 'antd'
+import { useNavigate } from 'react-router-dom';
 
 const PaymentPage = () => {
     const [buyItems, setBuyItems] = useState([]);
     const [subtotal, setSubtotal] = useState(0);
+    const [discount, setDiscount] = useState(0);
+    const [coupon, setCoupon] = useState('')
     const [paymentMethod, setPaymentMethod] = useState('bank');
+    const navigate = useNavigate()
 
-
+    const validCoupons = {
+        'sale5': 0.05,
+        'sale10': 0.10
+    }
     useEffect(() => {
         const buyData = JSON.parse(localStorage.getItem('buy')) || [];
         setBuyItems(buyData)
 
         const total = buyData.reduce((acc, item) => acc + item.price * item.quantity, 0)
         setSubtotal(total)
-        // const handleBeforeUnload = (e) => {
 
-        //     const message = "Are you sure you want to leave? Your order will be lost.";
-        //     e.returnValue = message;
-        //     return message;
-        // };
-        // window.addEventListener('beforeunload', handleBeforeUnload);
-        // return () => {
-        //     window.removeEventListener('beforeunload', handleBeforeUnload);
-        // };
     }, [])
+
+    const handleApplyCoupon = () => {
+        if (validCoupons[coupon]) {
+            const discountValue = validCoupons[coupon];
+            setDiscount(discountValue);
+            notification.success({
+                message: 'Success',
+                description: `Discount code applied successfully.`
+            })
+        } else {
+            alert('Invalid coupon code!');
+            setDiscount(0);
+        }
+    }
+
+    const handlePlaceOrder = () => {
+        notification.success({
+            message: `Order placed with payment method:${paymentMethod} `,
+            description: `Total:${totalAfterDiscount.toFixed(2)}`
+        })
+        localStorage.removeItem('buy')
+        navigate('/')
+
+    }
+    const totalAfterDiscount = subtotal - (subtotal * discount);
 
     return (
         <div className='mt-2'>
@@ -104,12 +128,16 @@ const PaymentPage = () => {
                                     <p>${subtotal.toFixed(2)}</p>
                                 </div>
                                 <div className='flex justify-between items-center border-b-2 pb-4'>
+                                    <h1 className='font-semibold'>Discount:</h1>
+                                    <p className='text-gray-400'>- ${subtotal * discount > 0 ? (subtotal * discount).toFixed(2) : '0.00'}</p>
+                                </div>
+                                <div className='flex justify-between items-center border-b-2 pb-4'>
                                     <h1 className='font-semibold'>Shipping:</h1>
                                     <p>Free</p>
                                 </div>
                                 <div className='flex justify-between items-center'>
                                     <h1 className='font-semibold'>Total:</h1>
-                                    <p>${subtotal.toFixed(2)}</p>
+                                    <p>${totalAfterDiscount.toFixed(2)}</p>
                                 </div>
                             </div>
                             <div className='flex flex-col gap-4'>
@@ -130,14 +158,18 @@ const PaymentPage = () => {
                                 <input
                                     type='text'
                                     placeholder='Coupon Code'
+                                    value={coupon}
+                                    onChange={(e) => setCoupon(e.target.value)}
                                     className='border border-gray-300 w-[70%] rounded-lg pl-2 py-3 my-2 outline-none focus:bg-white focus:border-gray-800 focus:border'
                                 />
-                                <button className='bg-primary px-6 py-3 text-white rounded-lg '>
+                                <button className='bg-primary px-6 py-3 text-white rounded-lg'
+                                    onClick={handleApplyCoupon}>
                                     Apply Coupon
                                 </button>
                             </div>
                             <div>
-                                <button className='bg-primary px-6 py-3 text-white rounded-lg '>
+                                <button className='bg-primary px-6 py-3 text-white rounded-lg'
+                                    onClick={handlePlaceOrder}>
                                     Place Order
                                 </button>
                             </div>

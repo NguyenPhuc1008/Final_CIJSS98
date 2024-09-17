@@ -3,6 +3,7 @@ import axios from 'axios';
 import Button from '../components/HomePage/Shared/Button'
 import { BiMenu } from "react-icons/bi";
 import { Link } from 'react-router-dom'
+// import { useSearch } from '../context/SearchContext';
 
 const ShopPage = () => {
     const [categorys, setCategorys] = useState([])
@@ -10,6 +11,7 @@ const ShopPage = () => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
+    // const { searchQuery } = useSearch();
 
     useEffect(() => {
         const fetchCategorys = async () => {
@@ -36,7 +38,8 @@ const ShopPage = () => {
                 const res = await axios.get('http://localhost:8888/product');
                 if (categoryId === 0) {
                     setProducts(res.data);
-                } else {
+                }
+                else {
                     const filteredProducts = res.data.filter(
                         (p) => p.category_id === categoryId
                     );

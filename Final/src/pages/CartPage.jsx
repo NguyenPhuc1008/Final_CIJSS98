@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Button from '../components/HomePage/Shared/Button'
 import { FaRegTrashAlt } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const CartPage = () => {
     const [cartItems, setCartItems] = useState([]);
     const [totalQuantity, setTotalQuantity] = useState(0);
+    const navigate = useNavigate()
 
     useEffect(() => {
         const cartData = JSON.parse(localStorage.getItem('cart')) || [];
@@ -44,6 +45,18 @@ const CartPage = () => {
         const event = new Event('storage');
         window.dispatchEvent(event);
         calculateTotalQuantity(updateCart)
+    }
+    const handleCheckOutItem = () => {
+        if (cartItems.length > 0) {
+            localStorage.removeItem('buy')
+            localStorage.setItem('buy', JSON.stringify(cartItems));
+            localStorage.removeItem('cart')
+            const event = new Event('storage');
+            window.dispatchEvent(event);
+            navigate('/payment')
+
+        }
+
     }
     if (cartItems.length === 0) {
         return <div className="justify-center flex items-center pt-10">
@@ -95,7 +108,8 @@ const CartPage = () => {
                         <div className='flex flex-col gap-5'>
                             <h2 className='text-xl font-bold'>Total: ${getTotalPrice().toFixed(2)}</h2>
                             <div>
-                                <Button text={'Checkout'} bgColor={'bg-primary'} textColor={'text-white'} />
+                                <button className='bg-primary text-white px-6 py-2 rounded-xl'
+                                    onClick={handleCheckOutItem}>CheckOut</button>
                             </div>
                         </div>
 

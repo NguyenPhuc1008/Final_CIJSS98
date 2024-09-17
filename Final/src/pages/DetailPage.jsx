@@ -42,8 +42,10 @@ const DetailPage = () => {
         })
     };
     const handleBuyNow = () => {
+        localStorage.removeItem('buy')
         const buy = JSON.parse(localStorage.getItem('buy')) || [];
         const productInPay = buy.find(item => item.id === product.id);
+
         if (productInPay) {
             productInPay.quantity += amount;
         } else {

@@ -3,17 +3,14 @@
     {
       "id": "phuc@phuc",
       "name": "phuc",
-      "pass": "123"
+      "pass": "123",
+      "role": "user"
     },
     {
-      "id": "phuc@phuc",
+      "id": "phuc@phuc1",
       "name": "phuc",
-      "pass": "1234"
-    },
-    {
-      "id": "hien@occho",
-      "name": "hiendubo",
-      "pass": "123"
+      "pass": "1234",
+      "role": "admin"
     },
     {
       "id": "phuc@p",

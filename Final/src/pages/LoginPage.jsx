@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ImgLogin from '../assets/login/login.jpg'
 import { Link, useNavigate } from 'react-router-dom'
-
 import { notification } from 'antd'
 
 const LoginPage = () => {
@@ -14,7 +13,7 @@ const LoginPage = () => {
             fetch("http://localhost:8888/user/" + email).then((res) => {
                 return res.json();
             }).then((resp) => {
-                console.log(resp)
+
                 if (Object.keys(resp).length === 0) {
                     alert('Please Enter valid Email')
                 } else {
@@ -23,7 +22,14 @@ const LoginPage = () => {
                             message: 'Success',
                             description: 'Login Successful.'
                         })
-                        navigate('/')
+                        localStorage.setItem('user', JSON.stringify(resp))
+                        const event = new Event('storage')
+                        window.dispatchEvent(event)
+                        if (resp.role === "user") {
+                            navigate('/')
+                        } else {
+                            console.log("Chuyen vao trang admin")
+                        }
 
                     } else {
                         alert('Please Enter valid credentials')
@@ -33,9 +39,14 @@ const LoginPage = () => {
                 alert('Login Failed' + err)
             })
             console.log('s')
-
         }
     }
+    useEffect(() => {
+        let user = localStorage.getItem('user');
+        if (user) {
+            navigate('/')
+        }
+    })
     const validate = () => {
         let rs = true;
         if (email === '' || email === null && pass === '' || pass === null) {
